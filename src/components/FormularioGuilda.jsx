@@ -63,14 +63,14 @@ function FormularioGuilda() {
       <form onSubmit={handleSubmit} noValidate>
         {/* ... (resto do código JSX do formulário) ... */}
         <div className="mb-4">
-          <label className="block text-blade-gray text-sm font-bold mb-2 font-text">Nome do Jogador:</label>
-          <input type="text" name="nome" value={formData.nome} onChange={handleChange} className="w-full bg-slate-700 text-white border border-slate-600 rounded py-2 px-3 leading-tight focus:outline-none focus:ring-2 focus:ring-fel-green" />
+          <label className="block text-spectral-white text-sm font-bold mb-2 font-text">Nome do Jogador:</label>
+          <input type="text" name="nome" value={formData.nome} onChange={handleChange} className="w-full bg-slate-700 text-blade-gray border border-slate-600 rounded py-2 px-3 leading-tight focus:outline-none focus:ring-2 focus:ring-fel-green" />
           {erros.nome && <p className="text-red-400 text-xs italic mt-1">{erros.nome}</p>}
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 md:gap-4">
           <div className="mb-4">
-            <label className="block text-blade-gray text-sm font-bold mb-2 font-text">Classe:</label>
-            <select name="classe" value={formData.classe} onChange={handleChange} className="w-full bg-slate-700 text-white border border-slate-600 rounded py-2 px-3 leading-tight focus:outline-none focus:ring-2 focus:ring-fel-green">
+            <label className="block text-spectral-white text-sm font-bold mb-2 font-text">Classe:</label>
+            <select name="classe" value={formData.classe} onChange={handleChange} className="w-full bg-slate-700 text-blade-gray border border-slate-600 rounded py-2 px-3 leading-tight focus:outline-none focus:ring-2 focus:ring-fel-green">
               <option value="">Selecione sua classe</option>
               <option value="Guerreiro">Guerreiro</option>
               <option value="Paladino">Paladino</option>
@@ -86,8 +86,8 @@ function FormularioGuilda() {
             {erros.classe && <p className="text-red-400 text-xs italic mt-1">{erros.classe}</p>}
           </div>
           <div className="mb-4">
-            <label className="block text-blade-gray text-sm font-bold mb-2 font-text">Função Principal:</label>
-            <select name="funcao" value={formData.funcao} onChange={handleChange} className="w-full bg-slate-700 text-white border border-slate-600 rounded py-2 px-3 leading-tight focus:outline-none focus:ring-2 focus:ring-fel-green">
+            <label className="block text-spectral-white text-sm font-bold mb-2 font-text">Função Principal:</label>
+            <select name="funcao" value={formData.funcao} onChange={handleChange} className="w-full bg-slate-700 text-blade-gray border border-slate-600 rounded py-2 px-3 leading-tight focus:outline-none focus:ring-2 focus:ring-fel-green">
               <option value="">Selecione sua função</option>
               <option value="Tank">Tank</option>
               <option value="Healer">Healer</option>
@@ -97,18 +97,18 @@ function FormularioGuilda() {
           </div>
         </div>
         <div className="mb-4">
-          <label className="block text-blade-gray text-sm font-bold mb-2 font-text">Nível (1-80):</label>
-          <input type="number" name="nivel" value={formData.nivel} onChange={handleChange} min="1" max="80" className="w-full bg-slate-700 text-white border border-slate-600 rounded py-2 px-3 leading-tight focus:outline-none focus:ring-2 focus:ring-fel-green" />
+          <label className="block text-spectral-white text-sm font-bold mb-2 font-text">Nível (1-80):</label>
+          <input type="number" name="nivel" value={formData.nivel} onChange={handleChange} min="1" max="80" className="w-full bg-slate-700 text-blade-gray border border-slate-600 rounded py-2 px-3 leading-tight focus:outline-none focus:ring-2 focus:ring-fel-green" />
           {erros.nivel && <p className="text-red-400 text-xs italic mt-1">{erros.nivel}</p>}
         </div>
         <div className="mb-4">
-          <label className="block text-blade-gray text-sm font-bold mb-2 font-text">Disponibilidade de Jogo:</label>
-          <input type="text" name="disponibilidade" value={formData.disponibilidade} onChange={handleChange} placeholder="Ex: Noites durante a semana" className="w-full bg-slate-700 text-white border border-slate-600 rounded py-2 px-3 leading-tight focus:outline-none focus:ring-2 focus:ring-fel-green" />
+          <label className="block text-spectral-white text-sm font-bold mb-2 font-text">Disponibilidade de Jogo:</label>
+          <input type="text" name="disponibilidade" value={formData.disponibilidade} onChange={handleChange} placeholder="Ex: Noites durante a semana" className="w-full bg-slate-700 text-blade-gray border border-slate-600 rounded py-2 px-3 leading-tight focus:outline-none focus:ring-2 focus:ring-fel-green" />
           {erros.disponibilidade && <p className="text-red-400 text-xs italic mt-1">{erros.disponibilidade}</p>}
         </div>
         <div className="mb-4">
-          <label className="block text-blade-gray text-sm font-bold mb-2 font-text">Breve Apresentação:</label>
-          <textarea name="apresentacao" value={formData.apresentacao} onChange={handleChange} className="w-full bg-slate-700 text-white border border-slate-600 rounded py-2 px-3 leading-tight focus:outline-none focus:ring-2 focus:ring-fel-green h-24 resize-none"></textarea>
+          <label className="block text-spectral-white text-sm font-bold mb-2 font-text">Breve Apresentação:</label>
+          <textarea name="apresentacao" value={formData.apresentacao} onChange={handleChange} className="w-full bg-slate-700 text-blade-gray border border-slate-600 rounded py-2 px-3 leading-tight focus:outline-none focus:ring-2 focus:ring-fel-green h-24 resize-none"></textarea>
           {erros.apresentacao && <p className="text-red-400 text-xs italic mt-1">{erros.apresentacao}</p>}
         </div>
         <button type="submit" disabled={enviando} className="w-full bg-fel-green hover:bg-fel-green/80 text-wing-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline disabled:bg-gray-500 disabled:cursor-not-allowed transition-colors duration-300">
@@ -118,7 +118,7 @@ function FormularioGuilda() {
       <div className="mt-12 border-t border-fel-green pt-6">
         <h2 className="text-2xl font-bold text-center text-fel-green font-titulo mb-4">Membros Recrutados</h2>
         {membros.length === 0 ? (
-          <p className="text-center text-slate-400">Nenhum membro inscrito ainda.</p>
+          <p className="text-center text-blade-gray">Nenhum membro inscrito ainda.</p>
         ) : (
           <ul className="space-y-3">
             {membros.map((membro, index) => (
