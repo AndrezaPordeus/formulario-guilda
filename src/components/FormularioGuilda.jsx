@@ -1,0 +1,137 @@
+// src/components/FormularioGuilda.jsx
+
+import React, { useState } from 'react';
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxNTRyaqG8Zt5w4UnaK1vxsKUuIc8ODR0z2UYtYxHVgrdbY8IYVL9G7XhXtZmFJa3W43Q/exec';
+
+function FormularioGuilda() {
+  // Toda a lógica para gerenciar os dados do formulário e a lista de membros
+  const [formData, setFormData] = useState({
+    nome: '', classe: '', funcao: '', nivel: '', disponibilidade: '', apresentacao: '',
+  });
+  const [membros, setMembros] = useState([]);
+  const [erros, setErros] = useState({});
+  const [enviando, setEnviando] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const validarFormulario = () => {
+    const novosErros = {};
+    if (!formData.nome) novosErros.nome = 'O nome é obrigatório.';
+    if (!formData.classe) novosErros.classe = 'A classe é obrigatória.';
+    if (!formData.funcao) novosErros.funcao = 'A função é obrigatória.';
+    if (!formData.disponibilidade) novosErros.disponibilidade = 'A disponibilidade é obrigatória.';
+    if (!formData.apresentacao) novosErros.apresentacao = 'A apresentação é obrigatória.';
+    if (!formData.nivel) {
+      novosErros.nivel = 'O nível é obrigatório.';
+    } else if (formData.nivel < 1 || formData.nivel > 80) {
+      novosErros.nivel = 'O nível deve ser entre 1 e 80.';
+    }
+    setErros(novosErros);
+    return Object.keys(novosErros).length === 0;
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!validarFormulario()) return;
+
+    setEnviando(true);
+    try {
+      await fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST', mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      setMembros([...membros, formData]);
+      setFormData({ nome: '', classe: '', funcao: '', nivel: '', disponibilidade: '', apresentacao: '' });
+      alert('Inscrição enviada com sucesso!');
+    } catch (error) {
+      console.error('Erro ao enviar para o Google Sheets:', error);
+      alert('Ocorreu um erro ao enviar sua inscrição. Tente novamente.');
+    } finally {
+      setEnviando(false);
+    }
+  };
+
+  // A parte visual do formulário, estilizada com Tailwind CSS
+  return (
+    <div className="max-w-2xl mx-auto bg-slate-800 p-8 rounded-lg shadow-lg">
+      <h1 className="text-3xl font-bold text-center text-fel-green mb-6 font-titulo">Formulário de Inscrição da Guilda</h1>
+
+      <form onSubmit={handleSubmit} noValidate>
+        {/* ... (resto do código JSX do formulário) ... */}
+        <div className="mb-4">
+          <label className="block text-slate-300 text-sm font-bold mb-2">Nome do Jogador:</label>
+          <input type="text" name="nome" value={formData.nome} onChange={handleChange} className="w-full bg-slate-700 text-white border border-slate-600 rounded py-2 px-3 leading-tight focus:outline-none focus:ring-2 focus:ring-pink-500" />
+          {erros.nome && <p className="text-red-400 text-xs italic mt-1">{erros.nome}</p>}
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 md:gap-4">
+          <div className="mb-4">
+            <label className="block text-slate-300 text-sm font-bold mb-2">Classe:</label>
+            <select name="classe" value={formData.classe} onChange={handleChange} className="w-full bg-slate-700 text-white border border-slate-600 rounded py-2 px-3 leading-tight focus:outline-none focus:ring-2 focus:ring-pink-500">
+              <option value="">Selecione sua classe</option>
+              <option value="Guerreiro">Guerreiro</option>
+              <option value="Paladino">Paladino</option>
+              <option value="Caçador">Caçador</option>
+              <option value="Ladino">Ladino</option>
+              <option value="Sacerdote">Sacerdote</option>
+              <option value="Xamã">Xamã</option>
+              <option value="Mago">Mago</option>
+              <option value="Bruxo">Bruxo</option>
+              <option value="Druida">Druida</option>
+              <option value="Cavaleiro da Morte">Cavaleiro da Morte</option>
+            </select>
+            {erros.classe && <p className="text-red-400 text-xs italic mt-1">{erros.classe}</p>}
+          </div>
+          <div className="mb-4">
+            <label className="block text-slate-300 text-sm font-bold mb-2">Função Principal:</label>
+            <select name="funcao" value={formData.funcao} onChange={handleChange} className="w-full bg-slate-700 text-white border border-slate-600 rounded py-2 px-3 leading-tight focus:outline-none focus:ring-2 focus:ring-pink-500">
+              <option value="">Selecione sua função</option>
+              <option value="Tank">Tank</option>
+              <option value="Healer">Healer</option>
+              <option value="DPS">DPS</option>
+            </select>
+            {erros.funcao && <p className="text-red-400 text-xs italic mt-1">{erros.funcao}</p>}
+          </div>
+        </div>
+        <div className="mb-4">
+          <label className="block text-slate-300 text-sm font-bold mb-2">Nível (1-80):</label>
+          <input type="number" name="nivel" value={formData.nivel} onChange={handleChange} min="1" max="80" className="w-full bg-slate-700 text-white border border-slate-600 rounded py-2 px-3 leading-tight focus:outline-none focus:ring-2 focus:ring-pink-500" />
+          {erros.nivel && <p className="text-red-400 text-xs italic mt-1">{erros.nivel}</p>}
+        </div>
+        <div className="mb-4">
+          <label className="block text-slate-300 text-sm font-bold mb-2">Disponibilidade de Jogo:</label>
+          <input type="text" name="disponibilidade" value={formData.disponibilidade} onChange={handleChange} placeholder="Ex: Noites durante a semana" className="w-full bg-slate-700 text-white border border-slate-600 rounded py-2 px-3 leading-tight focus:outline-none focus:ring-2 focus:ring-pink-500" />
+          {erros.disponibilidade && <p className="text-red-400 text-xs italic mt-1">{erros.disponibilidade}</p>}
+        </div>
+        <div className="mb-4">
+          <label className="block text-slate-300 text-sm font-bold mb-2">Breve Apresentação:</label>
+          <textarea name="apresentacao" value={formData.apresentacao} onChange={handleChange} className="w-full bg-slate-700 text-white border border-slate-600 rounded py-2 px-3 leading-tight focus:outline-none focus:ring-2 focus:ring-pink-500 h-24 resize-none"></textarea>
+          {erros.apresentacao && <p className="text-red-400 text-xs italic mt-1">{erros.apresentacao}</p>}
+        </div>
+        <button type="submit" disabled={enviando} className="w-full bg-pink-600 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline disabled:bg-gray-500 disabled:cursor-not-allowed transition-colors duration-300">
+          {enviando ? 'Enviando...' : 'Enviar Inscrição'}
+        </button>
+      </form>
+      <div className="mt-12 border-t border-pink-500 pt-6">
+        <h2 className="text-2xl font-bold text-center text-pink-500 mb-4">Membros Recrutados</h2>
+        {membros.length === 0 ? (
+          <p className="text-center text-slate-400">Nenhum membro inscrito ainda.</p>
+        ) : (
+          <ul className="space-y-3">
+            {membros.map((membro, index) => (
+              <li key={index} className="bg-slate-700 p-4 rounded-lg flex flex-col sm:flex-row justify-between sm:items-center">
+                <p className="font-bold text-white">{membro.nome} - <span className="font-normal text-slate-300">{membro.classe} {membro.funcao}</span></p>
+                <p className="text-pink-400 font-semibold">Nível {membro.nivel}</p>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+    </div>
+  );
+}
+
+export default FormularioGuilda;

@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&family=Metamorphous&display=swap');
+@import "tailwindcss";
+
+
+@theme {
+      --font-titulo: 'Metamorphous', cursive;
+      --font-texto: "Exo 2", sans-serif;
+      --color-fel-green: #18FF2A;
+      --color-temple-purple: #4B0082;
+      --color-wing-black: #101010;
+      --color-blade-gray: #A9A9A9;
+      --color-spectral-white: #F5FFFA;
+}
