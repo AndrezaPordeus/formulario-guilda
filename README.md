@@ -6,7 +6,7 @@ Este projeto é uma aplicação web front-end que apresenta um formulário de re
 
 Abaixo está uma prévia de como o formulário se parece em um dispositivo desktop.
 
-![Preview do Formulário de Guilda](./.github/preview.png)
+![Preview do Formulário de Guilda](./github/preview.jpeg)
 
 ## �🚀 Funcionalidades
 
