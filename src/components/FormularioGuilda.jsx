@@ -85,6 +85,8 @@ function FormularioGuilda() {
               <option value="Bruxo">Bruxo</option>
               <option value="Druida">Druida</option>
               <option value="Cavaleiro da Morte">Cavaleiro da Morte</option>
+              <option value="Caçador de Demônios">Caçador de Demônios</option>
+              <option value="Conjurante">Conjurante</option>
             </select>
             {erros.classe && <p className="text-red-400 text-xs italic mt-1">{erros.classe}</p>}
           </div>
