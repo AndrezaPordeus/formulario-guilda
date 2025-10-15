@@ -58,13 +58,16 @@ function FormularioGuilda() {
   // A parte visual do formulário, estilizada com Tailwind CSS
   return (
     <div className="max-w-2xl mx-auto bg-temple-purple p-8 rounded-lg shadow-lg">
-      <h1 className="text-3xl font-bold text-center text-fel-green mb-6 font-titulo">Formulário de Inscrição da Guilda</h1>
+      <h1 className="text-3xl font-bold text-center text-fel-green font-titulo mb-1">Formulário de Inscrição da Guilda</h1>
+      <p className="text-blade-gray text-center font-body mb-6">
+            Você não está preparado para o que o espera.
+          </p>
 
       <form onSubmit={handleSubmit} noValidate>
         {/* ... (resto do código JSX do formulário) ... */}
         <div className="mb-4">
           <label className="block text-spectral-white text-sm font-bold mb-2 font-text">Nome do Jogador:</label>
-          <input type="text" name="nome" value={formData.nome} onChange={handleChange} className="w-full bg-slate-700 text-blade-gray border border-slate-600 rounded py-2 px-3 leading-tight focus:outline-none focus:ring-2 focus:ring-fel-green" />
+          <input type="text" name="nome" value={formData.nome} onChange={handleChange} placeholder="Ex: Illidan-Azralon" className="w-full bg-slate-700 text-blade-gray border border-slate-600 rounded py-2 px-3 leading-tight focus:outline-none focus:ring-2 focus:ring-fel-green" />
           {erros.nome && <p className="text-red-400 text-xs italic mt-1">{erros.nome}</p>}
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 md:gap-4">
