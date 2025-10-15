@@ -126,8 +126,8 @@ function FormularioGuilda() {
           <ul className="space-y-3">
             {membros.map((membro, index) => (
               <li key={index} className="bg-slate-700 p-4 rounded-lg flex flex-col sm:flex-row justify-between sm:items-center">
-                <p className="font-bold text-white">{membro.nome} - <span className="font-normal text-blade-gray">{membro.classe} {membro.funcao}</span></p>
-                <p className="text-pink-400 font-semibold">Nível {membro.nivel}</p>
+                <p className="font-bold text-spectral-white">{membro.nome} - <span className="font-normal text-blade-gray">{membro.classe} {membro.funcao}</span></p>
+                <p className="text-fel-green font-semibold">Nível {membro.nivel}</p>
               </li>
             ))}
           </ul>
