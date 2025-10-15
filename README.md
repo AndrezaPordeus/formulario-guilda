@@ -13,6 +13,7 @@ Abaixo está uma prévia de como o formulário se parece em um dispositivo deskt
 - **Interface Moderna:** Design limpo e agradável construído com Tailwind CSS.
 - **Responsividade:** O layout se adapta a diferentes tamanhos de tela, de dispositivos móveis a desktops.
 - **Componentização:** A estrutura do formulário é organizada em componentes React reutilizáveis, como visto em `FormularioGuilda.jsx`.
+- **Integração com Google Sheets:** As inscrições enviadas pelo formulário são salvas automaticamente em uma planilha do Google Sheets através de um Google Apps Script, funcionando como um "backend" simples e eficaz.
 
 ## 🛠️ Tecnologias Utilizadas
 
