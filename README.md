@@ -1,16 +1,60 @@
-# React + Vite
+# Formulário de Guilda
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto é uma aplicação web front-end que apresenta um formulário de recrutamento para uma guilda. Foi desenvolvido como um estudo prático para solidificar conceitos de desenvolvimento de interfaces com React e estilização moderna utilizando Tailwind CSS.
 
-Currently, two official plugins are available:
+## �️ Preview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Abaixo está uma prévia de como o formulário se parece em um dispositivo desktop.
 
-## React Compiler
+![Preview do Formulário de Guilda](./.github/preview.png)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## �🚀 Funcionalidades
 
-## Expanding the ESLint configuration
+- **Interface Moderna:** Design limpo e agradável construído com Tailwind CSS.
+- **Responsividade:** O layout se adapta a diferentes tamanhos de tela, de dispositivos móveis a desktops.
+- **Componentização:** A estrutura do formulário é organizada em componentes React reutilizáveis, como visto em `FormularioGuilda.jsx`.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Tecnologias Utilizadas
+
+A lista de tecnologias principais usadas no desenvolvimento deste projeto:
+
+- **React:** Biblioteca JavaScript para construir interfaces de usuário.
+- **Tailwind CSS:** Framework CSS utility-first para estilização rápida e customizável.
+- **Vite:** Ferramenta de build moderna que oferece uma experiência de desenvolvimento mais rápida.
+- **JavaScript (ES6+):** Linguagem de programação base da aplicação.
+
+## 📂 Estrutura do Projeto
+
+A estrutura de pastas principal do projeto está organizada da seguinte forma:
+
+```
+formulario-guilda/
+├── public/
+│   └── # Arquivos estáticos
+├── src/
+│   ├── assets/
+│   │   └── # Imagens, fontes, etc.
+│   ├── components/
+│   │   └── FormularioGuilda.jsx # Componente principal do formulário
+│   ├── App.jsx                  # Componente raiz da aplicação
+│   └── main.jsx                 # Ponto de entrada da aplicação
+├── .gitignore
+├── index.html
+├── package.json
+└── README.md
+```
+
+## ⚙️ Como Executar o Projeto
+
+Para rodar este projeto localmente, siga os passos abaixo:
+
+1.  **Clone o repositório:**
+    `git clone <URL_DO_REPOSITORIO>`
+2.  **Navegue até o diretório do projeto:**
+    `cd formulario-guilda`
+3.  **Instale as dependências:**
+    `npm install`
+4.  **Inicie o servidor de desenvolvimento:**
+    `npm run dev`
+
+Após executar os comandos, a aplicação estará disponível em `http://localhost:5173` (ou outra porta indicada no terminal).
