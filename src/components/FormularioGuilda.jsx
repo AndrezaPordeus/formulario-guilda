@@ -60,7 +60,7 @@ function FormularioGuilda() {
     <div className="max-w-2xl mx-auto bg-temple-purple p-8 rounded-lg shadow-lg">
       <h1 className="text-3xl font-bold text-center text-fel-green font-titulo mb-1">Formulário de Inscrição da Guilda</h1>
       <p className="text-blade-gray text-center font-body mb-6">
-            Você não está preparado para o que o espera.
+            Você não está preparado!
           </p>
 
       <form onSubmit={handleSubmit} noValidate>

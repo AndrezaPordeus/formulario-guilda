@@ -11,3 +11,10 @@
       --color-blade-gray: #A9A9A9;
       --color-spectral-white: #F5FFFA;
 }
+
+
+body {
+      background-image: url('./assets/illidan.jpg'); 
+      background-repeat: no-repeat;
+      background-size: cover;
+}
