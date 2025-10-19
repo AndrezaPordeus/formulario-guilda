@@ -2,18 +2,24 @@
 
 Este projeto é uma aplicação web front-end que apresenta um formulário de recrutamento para uma guilda. Foi desenvolvido como um estudo prático para solidificar conceitos de desenvolvimento de interfaces com React e estilização moderna utilizando Tailwind CSS.
 
-## �️ Preview
+## ️ Preview
 
 Abaixo está uma prévia de como o formulário se parece em um dispositivo desktop.
 
 ![Preview do Formulário de Guilda](./github/preview.jpeg)
 
-## �🚀 Funcionalidades
+## 🚀 Funcionalidades
 
 - **Interface Moderna:** Design limpo e agradável construído com Tailwind CSS.
 - **Responsividade:** O layout se adapta a diferentes tamanhos de tela, de dispositivos móveis a desktops.
 - **Componentização:** A estrutura do formulário é organizada em componentes React reutilizáveis, como visto em `FormularioGuilda.jsx`.
 - **Integração com Google Sheets:** As inscrições enviadas pelo formulário são salvas automaticamente em uma planilha do Google Sheets através de um Google Apps Script, funcionando como um "backend" simples e eficaz.
+
+## ☁️ Deploy
+
+O projeto está disponível para visualização e interação através do seguinte link:
+
+[https://formulario-guilda.vercel.app/](https://formulario-guilda.vercel.app/)
 
 ## 🛠️ Tecnologias Utilizadas
 
