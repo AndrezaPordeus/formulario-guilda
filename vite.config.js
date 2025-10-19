@@ -1,10 +1,12 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
+
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/formulario-guilda/',
-  plugins: [react(),
-            tailwindcss()],
-            base: "./",
+  plugins: [
+    react(),
+    tailwindcss()
+  ],
+  base: "./", // A propriedade 'base' deve estar aqui, junto com 'plugins'
 })
