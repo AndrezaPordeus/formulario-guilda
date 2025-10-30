@@ -1,6 +1,6 @@
 // src/components/FormularioGuilda.jsx
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxNTRyaqG8Zt5w4UnaK1vxsKUuIc8ODR0z2UYtYxHVgrdbY8IYVL9G7XhXtZmFJa3W43Q/exec';
 
 function FormularioGuilda() {
@@ -8,9 +8,28 @@ function FormularioGuilda() {
   const [formData, setFormData] = useState({
     nome: '', classe: '', funcao: '', nivel: '', disponibilidade: '', apresentacao: '',
   });
-  const [membros, setMembros] = useState([]);
+
+  const [membros, setMembros] = useState(() => {
+    try {
+      const membrosSalvos = localStorage.getItem('membrosGuilda');
+      return membrosSalvos ? JSON.parse(membrosSalvos) : [];
+    } catch (error) {
+      console.error('Erro ao carregar membros do localStorage:', error);
+      return [];
+    }
+  });
+
   const [erros, setErros] = useState({});
   const [enviando, setEnviando] = useState(false);
+
+  useEffect(() => {
+    try {
+      localStorage.setItem('membrosGuilda', JSON.stringify(membros));
+    } catch (error) {
+      console.error('Erro ao salvar membros no localStorage:', error);
+    }
+  }, [membros]);
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
