@@ -84,6 +84,7 @@ function FormularioGuilda() {
               <option value="Mago">Mago</option>
               <option value="Bruxo">Bruxo</option>
               <option value="Druida">Druida</option>
+              <option value="Druida">Monge</option>
               <option value="Cavaleiro da Morte">Cavaleiro da Morte</option>
               <option value="Caçador de Demônios">Caçador de Demônios</option>
               <option value="Conjurante">Conjurante</option>
