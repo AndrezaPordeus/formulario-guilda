@@ -1,7 +1,7 @@
 // src/components/FormularioGuilda.jsx
 
 import React, { useState, useEffect } from 'react';
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxNTRyaqG8Zt5w4UnaK1vxsKUuIc8ODR0z2UYtYxHVgrdbY8IYVL9G7XhXtZmFJa3W43Q/exec';
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxcDA6kOeZDt7sYt3Ca4pC8UB9K3NNw_Aeo9cmZJO_NBI8dDmuTlBb4_S4qihLLJvV-Jw/exec';
 
 function FormularioGuilda() {
   // Toda a lógica para gerenciar os dados do formulário e a lista de membros
