@@ -19,6 +19,7 @@ function FormularioGuilda() {
     }
   });
 
+  const [ultimosMembros, setUltimosMembros] = useState([]);
   const [erros, setErros] = useState({});
   const [enviando, setEnviando] = useState(false);
 
@@ -29,6 +30,19 @@ function FormularioGuilda() {
       console.error('Erro ao salvar membros no localStorage:', error);
     }
   }, [membros]);
+
+  useEffect(() => {
+    const buscarUltimosMembros = async () => {
+      try {
+        const response = await fetch(GOOGLE_SCRIPT_URL);
+        const data = await response.json();
+        setUltimosMembros(data.slice(-3)); // Pega os três últimos
+      } catch (error) {
+        console.error('Erro ao buscar últimos membros:', error);
+      }
+    };
+    buscarUltimosMembros();
+  }, []);
 
 
   const handleChange = (e) => {
@@ -141,9 +155,24 @@ function FormularioGuilda() {
         </button>
       </form>
       <div className="mt-12 border-t border-fel-green pt-6">
-        <h2 className="text-2xl font-bold text-center text-fel-green font-titulo mb-4">Membros Recrutados</h2>
+        <h2 className="text-2xl font-bold text-center text-fel-green font-titulo mb-4">Últimos Membros Recrutados</h2>
+        {ultimosMembros.length === 0 ? (
+          <p className="text-center text-blade-gray">Nenhum membro inscrito recentemente.</p>
+        ) : (
+          <ul className="space-y-3">
+            {ultimosMembros.map((membro, index) => (
+              <li key={index} className="bg-slate-700 p-4 rounded-lg flex flex-col sm:flex-row justify-between sm:items-center">
+                <p className="font-bold text-spectral-white">{membro.nome} - <span className="font-normal text-blade-gray">{membro.classe} {membro.funcao}</span></p>
+                <p className="text-fel-green font-semibold">Nível {membro.nivel}</p>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+      <div className="mt-12 border-t border-fel-green pt-6">
+        <h2 className="text-2xl font-bold text-center text-fel-green font-titulo mb-4">Membros Recrutados Nesta Sessão</h2>
         {membros.length === 0 ? (
-          <p className="text-center text-blade-gray">Nenhum membro inscrito ainda.</p>
+          <p className="text-center text-blade-gray">Nenhum membro inscrito nesta sessão.</p>
         ) : (
           <ul className="space-y-3">
             {membros.map((membro, index) => (
